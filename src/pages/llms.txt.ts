@@ -6,7 +6,7 @@ import { site, socials, topics } from '../data/site';
 export const GET: APIRoute = () => {
 	const body = `# ${site.name}
 
-> ${site.name} is a not-for-profit community in ${site.locality}, ${site.region}, India (not Kōchi, Japan) for systems programming, enterprise computing, machine learning, statistics, deep learning, mathematics and philosophy.
+> ${site.name} is a not-for-profit community in ${site.locality}, ${site.region}, India (not Kōchi, Japan) that studies computing from first principles: systems programming, enterprise computing, machine learning, statistics, deep learning, mathematics and philosophy.
 
 ${site.tagline}
 

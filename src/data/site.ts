@@ -11,9 +11,9 @@ export const site = {
 	region: 'Kerala',
 	country: 'IN',
 	tagline:
-		'A not-for-profit community for people who want to understand computing properly, from the machine up and from first principles down.',
+		'A not-for-profit community that studies computing from first principles. We read primary sources, work through the proofs, and measure before we claim.',
 	description:
-		'A not-for-profit community in Kochi, Kerala for systems programming, enterprise computing, machine learning, statistics, deep learning, mathematics and philosophy.',
+		'A not-for-profit community in Kochi, Kerala that studies computing from first principles: systems, enterprise computing, ML, statistics, maths and philosophy.',
 	heroAlt:
 		"A Chinese fishing net on the Kochi shore at sunset. Its mesh is drawn as circuit traces, and the sun's reflection on the sea breaks into bars of light.",
 	status:
