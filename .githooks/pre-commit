@@ -1,0 +1,15 @@
+#!/bin/sh
+# Installed by `bun install` (the prepare script sets core.hooksPath to .githooks).
+set -e
+
+bun scripts/checks/run.ts --staged
+bun test --bail >/dev/null 2>&1 || { echo "Unit tests failed. Run \`bun test\` to see which." >&2; exit 1; }
+
+log=$(mktemp)
+if ! bun run build >"$log" 2>&1; then
+	cat "$log" >&2
+	echo "The site does not build. The output above says why." >&2
+	rm -f "$log"
+	exit 1
+fi
+rm -f "$log"
