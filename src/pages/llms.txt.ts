@@ -22,7 +22,7 @@ To take part, write to ${site.email} to hear about the first sessions, or to off
 
 ## Pages
 
-- [Home](${site.url}/): who we are, what we study, how to get in touch
+- [Home](${site.url}/): who we are, what we study, how to get in touch; its footer links here
 
 ## Optional
 
