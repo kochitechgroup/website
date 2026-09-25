@@ -1,0 +1,192 @@
+---
+const email = 'hello@kochitechgroup.dev';
+const github = 'https://github.com/kochitechgroup';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Kochi Tech Group</title>
+		<meta
+			name="description"
+			content="A not-for-profit community for deep technology in Kochi: compilers, GPUs, inference engines and the systems underneath."
+		/>
+	</head>
+	<body>
+		<main>
+			<header>
+				<p class="mark">KTG</p>
+				<h1>Kochi Tech Group</h1>
+				<p class="lede">
+					A not-for-profit community for deep technology in Kochi, for people who build the layers
+					most software sits on.
+				</p>
+			</header>
+
+			<section>
+				<h2>What counts as deep tech here</h2>
+				<ul>
+					<li>Compilers, language runtimes and virtual machines</li>
+					<li>GPU programming and high-performance computing</li>
+					<li>LLM inference engines and ML systems</li>
+					<li>Operating systems, databases and hardware</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>How it works</h2>
+				<dl>
+					<div>
+						<dt>Read</dt>
+						<dd>Paper and source-code reading sessions: one system, read closely, together.</dd>
+					</div>
+					<div>
+						<dt>Build</dt>
+						<dd>Small study groups that work through hands-on material and contribute upstream to open source.</dd>
+					</div>
+					<div>
+						<dt>Talk</dt>
+						<dd>Talks from people who have shipped this kind of work, in person in Kochi and online.</dd>
+					</div>
+				</dl>
+			</section>
+
+			<section class="join">
+				<h2>Join</h2>
+				<p>
+					The first sessions are being planned now. Write in if you want to attend, speak, host, or
+					help organise.
+				</p>
+				<p><a class="button" href={`mailto:${email}`}>{email}</a></p>
+			</section>
+
+			<footer>
+				<a href={github}>GitHub</a>
+				<span>Kochi, Kerala</span>
+			</footer>
+		</main>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--bg: #fbfaf7;
+		--fg: #1b1d1f;
+		--muted: #5c6166;
+		--rule: #e3e0d8;
+		--accent: #0f766e;
+		--accent-fg: #ffffff;
+		color-scheme: light dark;
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--bg: #121416;
+			--fg: #e8e6e1;
+			--muted: #9aa0a6;
+			--rule: #2a2e33;
+			--accent: #2dd4bf;
+			--accent-fg: #0b1412;
+		}
+	}
+	* {
+		box-sizing: border-box;
+	}
+	body {
+		margin: 0;
+		background: var(--bg);
+		color: var(--fg);
+		font: 17px/1.6 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	}
+	main {
+		max-width: 44rem;
+		margin: 0 auto;
+		padding: 4rem 1rem 3rem;
+	}
+	.mark {
+		display: inline-block;
+		margin: 0 0 1.5rem;
+		padding: 0.2rem 0.5rem;
+		border: 2px solid var(--accent);
+		color: var(--accent);
+		font: 700 0.85rem/1 ui-monospace, 'Cascadia Code', Menlo, monospace;
+		letter-spacing: 0.1em;
+	}
+	h1 {
+		margin: 0;
+		font-size: clamp(2.2rem, 7vw, 3.4rem);
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+	}
+	.lede {
+		margin: 1rem 0 0;
+		font-size: 1.2rem;
+		color: var(--muted);
+	}
+	section {
+		margin-top: 3rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--rule);
+	}
+	h2 {
+		margin: 0 0 1rem;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		color: var(--muted);
+	}
+	ul {
+		margin: 0;
+		padding-left: 1.2rem;
+	}
+	li + li {
+		margin-top: 0.3rem;
+	}
+	dl {
+		margin: 0;
+		display: grid;
+		gap: 1rem;
+	}
+	dl div {
+		display: grid;
+		grid-template-columns: 5rem 1fr;
+		gap: 1rem;
+	}
+	dt {
+		font-weight: 700;
+	}
+	dd {
+		margin: 0;
+	}
+	@media (max-width: 480px) {
+		dl div {
+			grid-template-columns: 1fr;
+			gap: 0.1rem;
+		}
+	}
+	.button {
+		display: inline-block;
+		padding: 0.7rem 1.1rem;
+		background: var(--accent);
+		color: var(--accent-fg);
+		text-decoration: none;
+		font-weight: 600;
+		border-radius: 6px;
+		overflow-wrap: anywhere;
+	}
+	.button:hover {
+		filter: brightness(1.08);
+	}
+	footer {
+		margin-top: 4rem;
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.9rem;
+		color: var(--muted);
+	}
+	footer a {
+		color: inherit;
+	}
+</style>

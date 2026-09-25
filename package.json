@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "bun scripts/checks/run.ts --all",
+    "test": "bun test",
+    "prepare": "git config core.hooksPath .githooks"
+  },
+  "dependencies": {
+    "astro": "^7.3.5"
+  },
+  "allowScripts": {
+    "esbuild": true
+  },
+  "packageManager": "bun@1.4.0",
+  "devDependencies": {
+    "@types/bun": "^1.4.2"
+  }
+}
