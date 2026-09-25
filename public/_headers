@@ -6,3 +6,7 @@
 
 /index.html.md
   Content-Type: text/markdown; charset=utf-8
+
+# Bluesky domain handle verification (@kochitechgroup.dev). Must be plain text.
+/.well-known/atproto-did
+  Content-Type: text/plain; charset=utf-8

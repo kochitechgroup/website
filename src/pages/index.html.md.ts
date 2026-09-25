@@ -2,7 +2,7 @@
 // (a page's Markdown twin lives at its URL + ".md"; "/" becomes "/index.html.md").
 // functions/_middleware.ts serves this for "/" when a client asks for text/markdown.
 import type { APIRoute } from 'astro';
-import { site, topics } from '../data/site';
+import { site, socials, topics } from '../data/site';
 
 export const GET: APIRoute = () => {
 	const body = `# ${site.name}
@@ -25,7 +25,7 @@ To hear first, or to take part, write to [${site.email}](mailto:${site.email}).
 
 - Website: ${site.url}/
 - Summary for AI agents: ${site.url}/llms.txt
-- GitHub: ${site.github}
+${socials.map((s) => `- ${s.name}: ${s.url}`).join('\n')}
 `;
 	return new Response(body);
 };

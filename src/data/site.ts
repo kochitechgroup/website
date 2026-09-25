@@ -20,6 +20,17 @@ export const site = {
 		'Starting out. Talks, reading groups and writing are being planned; no events are scheduled yet.',
 };
 
+// Official accounts. Add new ones here; the footer, JSON-LD sameAs, llms.txt
+// and the Markdown twin all read this list.
+export const socials = [
+	{ name: 'YouTube', url: 'https://www.youtube.com/@KochiTechGroup', note: 'recorded talks' },
+	{ name: 'X', url: 'https://x.com/kochitechgroup', note: 'updates' },
+	{ name: 'Instagram', url: 'https://www.instagram.com/kochitechgroup/', note: 'updates' },
+	// DID URL, so the link survives handle changes (the handle is @kochitechgroup.dev once verified).
+	{ name: 'Bluesky', url: 'https://bsky.app/profile/did:plc:shlvkrn2kun2knosxwyxgchs', note: 'updates' },
+	{ name: 'GitHub', url: 'https://github.com/kochitechgroup', note: 'code and community projects' },
+];
+
 export const topics = [
 	{ name: 'Systems programming', note: 'Compilers, runtimes, operating systems and the hardware underneath.' },
 	{ name: 'Enterprise computing', note: 'Distributed systems, data platforms and software that runs businesses.' },

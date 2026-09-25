@@ -1,7 +1,7 @@
 // /llms.txt, per https://llmstxt.org: H1, blockquote summary, free-form detail,
 // then H2 sections that are lists of links. Static build, so Pages serves it as text/plain.
 import type { APIRoute } from 'astro';
-import { site, topics } from '../data/site';
+import { site, socials, topics } from '../data/site';
 
 export const GET: APIRoute = () => {
 	const body = `# ${site.name}
@@ -27,7 +27,7 @@ To take part, write to ${site.email} to hear about the first sessions, or to off
 ## Optional
 
 - [Website source](${site.github}/website): the code for this site
-- [GitHub organisation](${site.github}): future community projects
+${socials.map((s) => `- [${s.name}](${s.url}): ${s.note}`).join('\n')}
 `;
 	return new Response(body);
 };

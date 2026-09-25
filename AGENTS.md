@@ -42,6 +42,8 @@ Adding a rule: add it to `rules`, then add a test in `rules.test.ts` that shows 
 - `robots.txt` carries `Content-Signal: search=yes, ai-input=yes, ai-train=yes`. Changing it is a policy decision for the organisers, not a code cleanup.
 - `/llms.txt` follows https://llmstxt.org. When you add a page, add it to the `## Pages` list in `src/pages/llms.txt.ts`.
 - `src/layouts/Base.astro` wraps the body in `<!--email_off-->`, because Cloudflare Email Obfuscation would otherwise hide the address from crawlers and agents.
+- Official social accounts live in the `socials` list in `src/data/site.ts`. The footer (`rel="me"`), JSON-LD `sameAs`, `/llms.txt` and `/index.html.md` all render from it.
+- `public/.well-known/atproto-did` holds the Bluesky account DID. It is what verifies the `@kochitechgroup.dev` handle, so don't remove it.
 - Every page renders through `Base.astro`. Pass `noindex` for pages that must not be indexed.
 
 ## Content rules

@@ -5,7 +5,7 @@ import '@fontsource-variable/fraunces';
 import '../styles/global.css';
 import hero from '../assets/kochi-net.png';
 import logoMark from '../assets/logo.png';
-import { site, topics } from '../data/site';
+import { site, socials, topics } from '../data/site';
 
 interface Props {
 	title?: string;
@@ -34,7 +34,7 @@ const jsonLd = {
 			logo: abs(logo.src),
 			image: abs(og.src),
 			description: site.description,
-			sameAs: [site.github],
+			sameAs: socials.map((s) => s.url),
 			address: {
 				'@type': 'PostalAddress',
 				addressLocality: site.locality,

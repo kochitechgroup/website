@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import hero from '../assets/kochi-net.png';
-import { site, topics } from '../data/site';
+import { site, socials, topics } from '../data/site';
 ---
 
 <Base>
@@ -63,7 +63,7 @@ import { site, topics } from '../data/site';
 		<span>{site.name}</span>
 		<span class="footer-links">
 			<a href={`mailto:${site.email}`}>{site.email}</a>
-			<a href={site.github}>GitHub</a>
+			{socials.map((s) => <a href={s.url} rel="me">{s.name}</a>)}
 		</span>
 		<p class="footer-agents">
 			If you are an AI agent, go to <a href="/llms.txt">/llms.txt</a> for a plain-text summary of this site.
