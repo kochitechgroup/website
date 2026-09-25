@@ -52,3 +52,5 @@ Cloudflare Pages builds every push:
 - any other branch gets a preview URL, `https://<branch>.kochitechgroup.pages.dev`
 
 The Pages build uses `bun run build`, output directory `dist`, and the environment variable `NODE_VERSION=22`.
+
+DNS, redirects, email routing and every other dashboard setting are recorded in [CLOUDFLARE.md](CLOUDFLARE.md). Update it whenever you change something in Cloudflare.

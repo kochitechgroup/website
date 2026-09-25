@@ -61,4 +61,6 @@ Adding a rule: add it to `rules`, then add a test in `rules.test.ts` that shows 
 
 ## Deploy
 
+Settings outside the repo (DNS, redirects, email, TLS) are recorded in `CLOUDFLARE.md`. Changing any of them without updating that file leaves the repo out of date.
+
 Cloudflare Pages builds `main` with `bun run build` and serves `dist/`. Pushing to `main` deploys to production, and other branches get preview URLs.
