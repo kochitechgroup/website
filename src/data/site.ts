@@ -27,7 +27,7 @@ export const socials = [
 	{ name: 'LinkedIn', url: 'https://www.linkedin.com/company/kochitechgroup/', note: 'updates for professionals' },
 	{ name: 'X', url: 'https://x.com/kochitechgroup', note: 'updates' },
 	{ name: 'Instagram', url: 'https://www.instagram.com/kochitechgroup/', note: 'updates' },
-	// DID URL, so the link survives handle changes (the handle is @kochitechgroup.dev once verified).
+	// DID URL, so the link survives handle changes (handle @kochitechgroup.dev, verified 2026-09-25 via public/.well-known/atproto-did).
 	{ name: 'Bluesky', url: 'https://bsky.app/profile/did:plc:shlvkrn2kun2knosxwyxgchs', note: 'updates' },
 	{ name: 'GitHub', url: 'https://github.com/kochitechgroup', note: 'code and community projects' },
 ];
