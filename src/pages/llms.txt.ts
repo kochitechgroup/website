@@ -1,26 +1,24 @@
-// /llms.txt, per https://llmstxt.org: a plain-Markdown summary for language models and agents.
+// /llms.txt, per https://llmstxt.org: H1, blockquote summary, free-form detail,
+// then H2 sections that are lists of links. Static build, so Pages serves it as text/plain.
 import type { APIRoute } from 'astro';
 import { site, topics } from '../data/site';
 
 export const GET: APIRoute = () => {
 	const body = `# ${site.name}
 
-> ${site.description}
+> ${site.name} is a not-for-profit community in ${site.locality}, ${site.region}, India (not Kōchi, Japan) for systems programming, enterprise computing, machine learning, statistics, deep learning, mathematics and philosophy.
 
 ${site.tagline}
 
-- Location: ${site.locality}, ${site.region}, India
-- Status: ${site.status}
-- Contact: ${site.email} (the only contact channel; email is read by the organisers)
-- Source code of this website: ${site.github}/website
+Status: ${site.status}
 
-## What we study
+Contact: ${site.email}. This is the only contact channel.
+
+Subjects:
 
 ${topics.map((t) => `- ${t.name}: ${t.note}`).join('\n')}
 
-## How to take part
-
-Write to ${site.email} to hear about the first sessions, or to offer a talk, a venue, or help organising.
+To take part, write to ${site.email} to hear about the first sessions, or to offer a talk, a venue, or help organising.
 
 ## Pages
 
@@ -28,7 +26,8 @@ Write to ${site.email} to hear about the first sessions, or to offer a talk, a v
 
 ## Optional
 
-- [GitHub organisation](${site.github}): the website's source and future community projects
+- [Website source](${site.github}/website): the code for this site
+- [GitHub organisation](${site.github}): future community projects
 `;
-	return new Response(body, { headers: { 'Content-Type': 'text/markdown; charset=utf-8' } });
+	return new Response(body);
 };

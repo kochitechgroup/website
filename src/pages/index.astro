@@ -3,9 +3,6 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import hero from '../assets/kochi-net.png';
 import { site, topics } from '../data/site';
-
-const heroAlt =
-	"A Chinese fishing net on the Kochi shore at sunset. Its mesh is drawn as circuit traces, and the sun's reflection on the sea breaks into bars of light.";
 ---
 
 <Base>
@@ -13,14 +10,14 @@ const heroAlt =
 		<Image
 			class="hero-image"
 			src={hero}
-			alt={heroAlt}
+			alt={site.heroAlt}
 			widths={[640, 960, 1254]}
 			sizes="100vw"
 			loading="eager"
 			fetchpriority="high"
 		/>
 		<div class="hero-scrim" aria-hidden="true"></div>
-		<nav class="bar wrap" aria-label="Site">
+		<nav class="bar wrap" aria-label={site.name}>
 			<span class="mark" aria-hidden="true">{site.shortName}</span>
 			<a class="bar-link" href={`mailto:${site.email}`}>Contact</a>
 		</nav>

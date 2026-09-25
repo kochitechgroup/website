@@ -13,7 +13,9 @@ export const site = {
 	tagline:
 		'A not-for-profit community for people who want to understand computing properly, from the machine up and from first principles down.',
 	description:
-		'A not-for-profit community in Kochi for systems programming, enterprise computing, machine learning, statistics, deep learning, mathematics and philosophy.',
+		'A not-for-profit community in Kochi, Kerala for systems programming, enterprise computing, machine learning, statistics, deep learning, mathematics and philosophy.',
+	heroAlt:
+		"A Chinese fishing net on the Kochi shore at sunset. Its mesh is drawn as circuit traces, and the sun's reflection on the sea breaks into bars of light.",
 	status:
 		'Starting out. Talks, reading groups and writing are being planned; no events are scheduled yet.',
 };

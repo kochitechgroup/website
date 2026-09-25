@@ -8,7 +8,7 @@
 	--accent: #b8430f;
 	--accent-strong: #9a3409;
 	--accent-fg: #ffffff;
-	--gold: #a86b00;
+	--gold: #8f5a00;
 	--band: #1b1433;
 	--band-fg: #f4efe6;
 	--band-muted: #c9c0dc;
@@ -121,7 +121,7 @@ h3 {
 	inset: 0;
 	z-index: -1;
 	background:
-		linear-gradient(to top, var(--scrim-strong) 0%, var(--scrim-strong) 12%, var(--scrim-soft) 68%),
+		linear-gradient(to top, var(--scrim-strong) 0%, var(--scrim-strong) 50%, var(--scrim-soft) 85%),
 		linear-gradient(to bottom, var(--scrim-strong) 0%, var(--scrim-soft) 22%);
 }
 
