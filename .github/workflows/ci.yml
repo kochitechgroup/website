@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: bun install --frozen-lockfile
+      - name: Conventional commits
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            range="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+          elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            range="HEAD~1..HEAD"
+            git rev-parse -q --verify HEAD~1 >/dev/null || range="HEAD"
+          else
+            range="${{ github.event.before }}..${{ github.sha }}"
+          fi
+          bun scripts/hooks/commit-msg.ts --range "$range"
+      - run: bun run check
+      - run: bun test
+      - run: bun run build
