@@ -53,6 +53,7 @@ Response headers come from `public/_headers` in this repo, not from the dashboar
 - **Agent Readiness scan (2026-09-25):** first scan "Almost ready", Quick Wins 3/5. Items since closed:
   - *Content Signals*: added to our own `robots.txt` on 2026-09-25, not through the managed-robots feature.
   - *Markdown Negotiation*: added on 2026-09-25 through the Pages Function.
+  - Rescan after the fixes (2026-09-25): **Quick Wins 5/5**.
   - Levels 2 and 3 (API discovery, agent login, tools) and Commerce don't apply to a static community site.
 
 ## Change log
