@@ -44,7 +44,10 @@ Adding a rule: add it to `rules`, then add a test in `rules.test.ts` that shows 
 
 ## Design rules
 
-- Colors are CSS custom properties on `:root`, redefined under `@media (prefers-color-scheme: dark)`. Nothing else holds a color literal.
+- The theme lives in `src/styles/global.css`. Its palette comes from the hero image `src/assets/kochi-net.png`: dusk indigo, sunset orange (accent) and sun gold.
+- Colors are CSS custom properties on `:root`, redefined under `@media (prefers-color-scheme: dark)`. Nothing else holds a color literal. Text over the hero image uses the `--on-image*` tokens, which are the same in both themes.
+- Type: Fraunces (serif) for headings and Inter for body text, both self-hosted via `@fontsource-variable`. Don't add Google Fonts links.
+- Images go in `src/assets/` and render through `astro:assets` `<Image>`, so they ship as resized WebP. Don't put large originals in `public/`.
 - It has to work at 390px wide with no horizontal scroll.
 - No client-side JavaScript unless a feature needs it. Right now nothing does.
 - Before calling a visual change done, look at it rendered: build, `bunx astro preview`, and screenshot desktop and phone widths.

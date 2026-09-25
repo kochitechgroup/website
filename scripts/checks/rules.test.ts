@@ -64,6 +64,10 @@ describe('page-metadata', () => {
 	});
 });
 
+test('img-alt ignores docs that mention the component', () => {
+	expect(ids('AGENTS.md', 'render through `<Image>`')).toEqual([]);
+});
+
 test('img-alt flags an image without alt', () => {
 	expect(ids('src/pages/a.astro', page('<img src="/a.png" />'))).toContain('img-alt');
 	expect(ids('src/pages/a.astro', page('<img src="/a.png" alt="" />'))).toEqual([]);

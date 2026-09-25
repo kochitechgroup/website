@@ -145,7 +145,8 @@ export const rules: Rule[] = [
 		title: 'Images have alt text',
 		why: 'Screen readers read alt text aloud. Without it they read the file name.',
 		fix: 'Add alt="what the image shows". Use alt="" only for purely decorative images.',
-		applies: ext('.astro', '.html', '.md', '.mdx'),
+		// Site files only: docs mention <Image> in prose and code spans.
+		applies: site,
 		check(text) {
 			return [...text.matchAll(/<(img|Image)\b(?![^>]*\balt=)[^>]*>/g)].map((m) => ({
 				line: lineOf(text, m.index!),
