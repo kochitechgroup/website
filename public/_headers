@@ -3,3 +3,6 @@
 # Content-hashed build output never changes under the same name.
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+/index.html.md
+  Content-Type: text/markdown; charset=utf-8

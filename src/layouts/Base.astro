@@ -65,6 +65,7 @@ const jsonLd = {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="apple-touch-icon" href={touchIcon.src} />
 		<link rel="describedby" href="/llms.txt" title="llms.txt" />
+		{Astro.url.pathname === '/' && <link rel="alternate" type="text/markdown" href="/index.html.md" />}
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta name="theme-color" content="#1b1433" />
 		<meta name="generator" content={Astro.generator} />

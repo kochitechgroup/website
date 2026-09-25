@@ -17,7 +17,7 @@ The zone is `kochitechgroup.dev`, on the Free plan. Account IDs and personal add
 | Environment variables | `NODE_VERSION=22` |
 | Framework preset | none |
 
-Response headers come from `public/_headers` in this repo, not from the dashboard.
+Response headers come from `public/_headers` in this repo, not from the dashboard. `functions/_middleware.ts` is a Pages Function, and `public/_routes.json` limits it to `/`, so it runs once per home-page request and never for assets.
 
 ## DNS
 
@@ -49,10 +49,10 @@ Response headers come from `public/_headers` in this repo, not from the dashboar
 ## AI crawlers and agents
 
 - **AI Crawl Control:** no per-crawler rules. `robots.txt` (served from this repo) allows everything, and GPTBot and ClaudeBot were checked to get a normal 200.
-- **Managed robots.txt:** off. Our own file is served unchanged.
+- **Managed robots.txt:** off. Our own file is served unchanged, including its `Content-Signal: search=yes, ai-input=yes, ai-train=yes` line (set 2026-09-25).
 - **Agent Readiness scan (2026-09-25):** "Almost ready", Quick Wins 3/5. The open items:
-  - *Content Signals*: none in `robots.txt`. Needs a decision on AI training (see below).
-  - *Markdown Negotiation*: `Accept: text/markdown` gets HTML back.
+  - *Content Signals*: added to our own `robots.txt` on 2026-09-25, not through the managed-robots feature.
+  - *Markdown Negotiation*: added on 2026-09-25 through the Pages Function.
   - Levels 2 and 3 (API discovery, agent login, tools) and Commerce don't apply to a static community site.
 
 ## Change log

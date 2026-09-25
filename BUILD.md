@@ -17,7 +17,8 @@ bun run dev     # local dev server at http://localhost:4321
 |---|---|
 | `bun run dev` | Dev server with live reload |
 | `bun run build` | Production build into `dist/` |
-| `bunx astro preview` | Serves `dist/` locally, as production would |
+| `bunx astro preview` | Serves `dist/` locally (static files only) |
+| `bunx wrangler pages dev dist` | Serves `dist/` with the Pages Function, as production would |
 | `bun run check` | Constraint checks over every tracked file |
 | `bun test` | Unit tests for the checks and hooks |
 
@@ -29,7 +30,10 @@ bun run dev     # local dev server at http://localhost:4321
 | `src/pages/index.astro` | Home page |
 | `src/pages/404.astro` | Not-found page |
 | `src/pages/llms.txt.ts` | `/llms.txt` for language models and agents, generated from `site.ts` |
-| `src/pages/robots.txt.ts` | `/robots.txt`, which points at the sitemap |
+| `src/pages/robots.txt.ts` | `/robots.txt`: allow-all, content signals, sitemap |
+| `src/pages/index.html.md.ts` | `/index.html.md`, the home page as Markdown |
+| `functions/_middleware.ts` | Cloudflare Pages Function: serves the Markdown twin of `/` to clients that ask for `text/markdown` |
+| `src/lib/negotiate.ts` | The `Accept` header parsing behind that, with tests |
 | `src/layouts/Base.astro` | `<head>`: title, canonical URL, Open Graph, JSON-LD |
 | `src/styles/global.css` | Theme tokens (light and dark) and layout |
 | `src/assets/` | Images. They are optimised at build time |

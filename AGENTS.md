@@ -38,6 +38,8 @@ Adding a rule: add it to `rules`, then add a test in `rules.test.ts` that shows 
 ## Site data and agent files
 
 - `src/data/site.ts` is the single source for the group's name, email, tagline and topics. The home page, `/llms.txt`, `/robots.txt` and the JSON-LD all read from it, so change facts there.
+- `/index.html.md` is the Markdown twin of the home page. `functions/_middleware.ts` serves it for `/` when `Accept` prefers `text/markdown`. `public/_routes.json` keeps the function on `/` only. When the page content changes, update the twin too.
+- `robots.txt` carries `Content-Signal: search=yes, ai-input=yes, ai-train=yes`. Changing it is a policy decision for the organisers, not a code cleanup.
 - `/llms.txt` follows https://llmstxt.org. When you add a page, add it to the `## Pages` list in `src/pages/llms.txt.ts`.
 - `src/layouts/Base.astro` wraps the body in `<!--email_off-->`, because Cloudflare Email Obfuscation would otherwise hide the address from crawlers and agents.
 - Every page renders through `Base.astro`. Pass `noindex` for pages that must not be indexed.
