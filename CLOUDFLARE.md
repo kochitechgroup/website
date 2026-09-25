@@ -44,17 +44,17 @@ Response headers come from `public/_headers` in this repo, not from the dashboar
 ## Security and TLS
 
 - **Universal SSL** certificate covers `kochitechgroup.dev` and `*.kochitechgroup.dev`.
-- **HSTS: not enabled.** It was recommended (6-month max-age, no `includeSubDomains`, no preload, plus `nosniff`) but is waiting for an organiser to switch on by hand under SSL/TLS → Edge Certificates.
+- **HSTS: on** (SSL/TLS → Edge Certificates), since 2026-09-25: `max-age` 6 months (15552000), `includeSubDomains` off, preload off, `X-Content-Type-Options: nosniff` on. Preload stays off on purpose, because leaving the browser preload list takes months. To turn HSTS off safely, set max-age to 0 first and wait out the old max-age before dropping HTTPS anywhere.
 
 ## AI crawlers and agents
 
 - **AI Crawl Control:** no per-crawler rules. `robots.txt` (served from this repo) allows everything, and GPTBot and ClaudeBot were checked to get a normal 200.
 - **Managed robots.txt:** off. Our own file is served unchanged, including its `Content-Signal: search=yes, ai-input=yes, ai-train=yes` line (set 2026-09-25).
-- **Agent Readiness scan (2026-09-25):** "Almost ready", Quick Wins 3/5. The open items:
+- **Agent Readiness scan (2026-09-25):** first scan "Almost ready", Quick Wins 3/5. Items since closed:
   - *Content Signals*: added to our own `robots.txt` on 2026-09-25, not through the managed-robots feature.
   - *Markdown Negotiation*: added on 2026-09-25 through the Pages Function.
   - Levels 2 and 3 (API discovery, agent login, tools) and Commerce don't apply to a static community site.
 
 ## Change log
 
-- **2026-09-25:** Pages project created, custom domain attached, Bulk Redirect `pages.dev` → apex added, `www` DNS record and www → apex redirect added. HSTS left off, pending a decision.
+- **2026-09-25:** Pages project created, custom domain attached, Bulk Redirect `pages.dev` → apex added, `www` DNS record and www → apex redirect added, HSTS enabled (6 months, no subdomains, no preload, nosniff), Content Signals and Markdown negotiation added through the repo.
