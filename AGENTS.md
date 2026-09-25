@@ -1,6 +1,6 @@
 # kochitechgroup.dev
 
-Website for Kochi Tech Group, a not-for-profit deep-tech community in Kochi. Astro static site, deployed to Cloudflare Pages from `main`.
+Website for Kochi Tech Group, a not-for-profit community in Kochi. Its areas: systems programming, enterprise computing, machine learning, statistics, deep learning, mathematics and philosophy. Astro static site, deployed to Cloudflare Pages from `main`.
 
 ## Toolchain
 
@@ -38,7 +38,7 @@ Adding a rule: add it to `rules`, then add a test in `rules.test.ts` that shows 
 ## Content rules
 
 - **Say only what is true today.** The group isn't registered and has no partners, sponsors, dates or venues yet. Don't invent events, speakers, member counts or testimonials. `claims-match-reality` catches some of these; the rest is on the author.
-- **The audience is engineers.** Write concrete, plain sentences. Name the systems (compilers, GPUs, inference engines) rather than gesturing at "deep tech".
+- **The audience is engineers and serious learners.** Write concrete, plain sentences. Name the subject rather than gesturing at "deep tech".
 - **Keep the name.** Write "Kochi Tech Group" in full, "KTG" only as the mark.
 - **Contact address:** `hello@kochitechgroup.dev`. It receives mail only, via Cloudflare Email Routing.
 

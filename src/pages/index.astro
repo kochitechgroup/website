@@ -1,6 +1,15 @@
 ---
 const email = 'hello@kochitechgroup.dev';
 const github = 'https://github.com/kochitechgroup';
+const topics = [
+	'Systems programming',
+	'Enterprise computing',
+	'Machine learning',
+	'Statistics',
+	'Deep learning',
+	'Mathematics',
+	'Philosophy',
+];
 ---
 
 <html lang="en">
@@ -12,7 +21,7 @@ const github = 'https://github.com/kochitechgroup';
 		<title>Kochi Tech Group</title>
 		<meta
 			name="description"
-			content="A not-for-profit community for deep technology in Kochi: compilers, GPUs, inference engines and the systems underneath."
+			content="A not-for-profit community in Kochi for systems programming, enterprise computing, machine learning, statistics, deep learning, mathematics and philosophy."
 		/>
 	</head>
 	<body>
@@ -21,44 +30,23 @@ const github = 'https://github.com/kochitechgroup';
 				<p class="mark">KTG</p>
 				<h1>Kochi Tech Group</h1>
 				<p class="lede">
-					A not-for-profit community for deep technology in Kochi, for people who build the layers
-					most software sits on.
+					A not-for-profit community in Kochi for people who want to understand computing properly,
+					from the machine up and from first principles down.
 				</p>
 			</header>
 
 			<section>
-				<h2>What counts as deep tech here</h2>
-				<ul>
-					<li>Compilers, language runtimes and virtual machines</li>
-					<li>GPU programming and high-performance computing</li>
-					<li>LLM inference engines and ML systems</li>
-					<li>Operating systems, databases and hardware</li>
+				<h2>What we study</h2>
+				<ul class="topics">
+					{topics.map((t) => <li>{t}</li>)}
 				</ul>
 			</section>
 
-			<section>
-				<h2>How it works</h2>
-				<dl>
-					<div>
-						<dt>Read</dt>
-						<dd>Paper and source-code reading sessions: one system, read closely, together.</dd>
-					</div>
-					<div>
-						<dt>Build</dt>
-						<dd>Small study groups that work through hands-on material and contribute upstream to open source.</dd>
-					</div>
-					<div>
-						<dt>Talk</dt>
-						<dd>Talks from people who have shipped this kind of work, in person in Kochi and online.</dd>
-					</div>
-				</dl>
-			</section>
-
 			<section class="join">
-				<h2>Join</h2>
+				<h2>Coming soon</h2>
 				<p>
-					The first sessions are being planned now. Write in if you want to attend, speak, host, or
-					help organise.
+					Talks, reading groups and writing are in the works. To hear first, or to take part, write
+					to us.
 				</p>
 				<p><a class="button" href={`mailto:${email}`}>{email}</a></p>
 			</section>
@@ -137,34 +125,18 @@ const github = 'https://github.com/kochitechgroup';
 		letter-spacing: 0.12em;
 		color: var(--muted);
 	}
-	ul {
+	.topics {
 		margin: 0;
-		padding-left: 1.2rem;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
 	}
-	li + li {
-		margin-top: 0.3rem;
-	}
-	dl {
-		margin: 0;
-		display: grid;
-		gap: 1rem;
-	}
-	dl div {
-		display: grid;
-		grid-template-columns: 5rem 1fr;
-		gap: 1rem;
-	}
-	dt {
-		font-weight: 700;
-	}
-	dd {
-		margin: 0;
-	}
-	@media (max-width: 480px) {
-		dl div {
-			grid-template-columns: 1fr;
-			gap: 0.1rem;
-		}
+	.topics li {
+		padding: 0.35rem 0.8rem;
+		border: 1px solid var(--rule);
+		border-radius: 999px;
 	}
 	.button {
 		display: inline-block;
