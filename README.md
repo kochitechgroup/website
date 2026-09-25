@@ -1,6 +1,6 @@
 # Kochi Tech Group
 
-**[kochitechgroup.dev](https://kochitechgroup.dev)** · **hello@kochitechgroup.dev** · [YouTube](https://www.youtube.com/@KochiTechGroup) · [X](https://x.com/kochitechgroup) · [Instagram](https://www.instagram.com/kochitechgroup/)
+**[kochitechgroup.dev](https://kochitechgroup.dev)** · **hello@kochitechgroup.dev** · [YouTube](https://www.youtube.com/@KochiTechGroup) · [LinkedIn](https://www.linkedin.com/company/kochitechgroup/) · [X](https://x.com/kochitechgroup) · [Instagram](https://www.instagram.com/kochitechgroup/) · [Bluesky](https://bsky.app/profile/did:plc:shlvkrn2kun2knosxwyxgchs)
 
 Kochi Tech Group is a not-for-profit community in Kochi, Kerala, for people who want to understand computing properly, from the machine up and from first principles down.
 

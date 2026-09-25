@@ -24,6 +24,7 @@ export const site = {
 // and the Markdown twin all read this list.
 export const socials = [
 	{ name: 'YouTube', url: 'https://www.youtube.com/@KochiTechGroup', note: 'recorded talks' },
+	{ name: 'LinkedIn', url: 'https://www.linkedin.com/company/kochitechgroup/', note: 'updates for professionals' },
 	{ name: 'X', url: 'https://x.com/kochitechgroup', note: 'updates' },
 	{ name: 'Instagram', url: 'https://www.instagram.com/kochitechgroup/', note: 'updates' },
 	// DID URL, so the link survives handle changes (the handle is @kochitechgroup.dev once verified).
