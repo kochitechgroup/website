@@ -1,0 +1,95 @@
+---
+import { getImage } from 'astro:assets';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/fraunces';
+import '../styles/global.css';
+import hero from '../assets/kochi-net.png';
+import { site, topics } from '../data/site';
+
+interface Props {
+	title?: string;
+	description?: string;
+	noindex?: boolean;
+}
+
+const { title = site.name, description = site.description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const heroAlt =
+	"A Chinese fishing net on the Kochi shore at sunset. Its mesh is drawn as circuit traces, and the sun's reflection on the sea breaks into bars of light.";
+
+const og = await getImage({ src: hero, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
+const logo = await getImage({ src: hero, width: 512, height: 512, fit: 'cover', format: 'png' });
+const abs = (path: string) => new URL(path, Astro.site).href;
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Organization',
+			'@id': `${site.url}/#organization`,
+			name: site.name,
+			alternateName: site.shortName,
+			url: `${site.url}/`,
+			email: `mailto:${site.email}`,
+			logo: abs(logo.src),
+			image: abs(og.src),
+			description: site.description,
+			sameAs: [site.github],
+			address: {
+				'@type': 'PostalAddress',
+				addressLocality: site.locality,
+				addressRegion: site.region,
+				addressCountry: site.country,
+			},
+			knowsAbout: topics.map((t) => t.name),
+		},
+		{
+			'@type': 'WebSite',
+			'@id': `${site.url}/#website`,
+			url: `${site.url}/`,
+			name: site.name,
+			inLanguage: 'en',
+			publisher: { '@id': `${site.url}/#organization` },
+		},
+	],
+};
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		{noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="alternate" type="text/markdown" title="llms.txt" href="/llms.txt" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta name="theme-color" content="#1b1433" />
+		<meta name="generator" content={Astro.generator} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={site.name} />
+		<meta property="og:locale" content="en_IN" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={abs(og.src)} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={heroAlt} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={abs(og.src)} />
+		<meta name="twitter:image:alt" content={heroAlt} />
+
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+	</head>
+	<body>
+		<!-- Cloudflare Email Obfuscation would hide the address from crawlers and agents. -->
+		<Fragment set:html="<!--email_off-->" />
+		<slot />
+		<Fragment set:html="<!--/email_off-->" />
+	</body>
+</html>

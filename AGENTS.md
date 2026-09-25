@@ -35,6 +35,13 @@ When a check fails, fix the text. Feedback from a check is routine and doesn't m
 
 Adding a rule: add it to `rules`, then add a test in `rules.test.ts` that shows it firing and not firing.
 
+## Site data and agent files
+
+- `src/data/site.ts` is the single source for the group's name, email, tagline and topics. The home page, `/llms.txt`, `/robots.txt` and the JSON-LD all read from it, so change facts there.
+- `/llms.txt` follows https://llmstxt.org. When you add a page, add it to the `## Pages` list in `src/pages/llms.txt.ts`.
+- `src/layouts/Base.astro` wraps the body in `<!--email_off-->`, because Cloudflare Email Obfuscation would otherwise hide the address from crawlers and agents.
+- Every page renders through `Base.astro`. Pass `noindex` for pages that must not be indexed.
+
 ## Content rules
 
 - **Say only what is true today.** The group isn't registered and has no partners, sponsors, dates or venues yet. Don't invent events, speakers, member counts or testimonials. `claims-match-reality` catches some of these; the rest is on the author.

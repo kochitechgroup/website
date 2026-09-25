@@ -1,111 +1,72 @@
 ---
-import { Image, getImage } from 'astro:assets';
-import '@fontsource-variable/inter';
-import '@fontsource-variable/fraunces';
-import '../styles/global.css';
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
 import hero from '../assets/kochi-net.png';
+import { site, topics } from '../data/site';
 
-const email = 'hello@kochitechgroup.dev';
-const github = 'https://github.com/kochitechgroup';
-const description =
-	'A not-for-profit community in Kochi for systems programming, enterprise computing, machine learning, statistics, deep learning, mathematics and philosophy.';
 const heroAlt =
 	"A Chinese fishing net on the Kochi shore at sunset. Its mesh is drawn as circuit traces, and the sun's reflection on the sea breaks into bars of light.";
-
-const topics = [
-	{ name: 'Systems programming', note: 'Compilers, runtimes, operating systems and the hardware underneath.' },
-	{ name: 'Enterprise computing', note: 'Distributed systems, data platforms and software that runs businesses.' },
-	{ name: 'Machine learning', note: 'Models that learn from data, and the engineering to train and serve them.' },
-	{ name: 'Statistics', note: 'Inference, uncertainty and knowing what the data actually says.' },
-	{ name: 'Deep learning', note: 'Neural networks, from the mathematics to the GPU kernels.' },
-	{ name: 'Mathematics', note: 'The foundations: linear algebra, probability, logic and proof.' },
-	{ name: 'Philosophy', note: 'Mind, meaning and knowledge, and what computing tells us about them.' },
-];
-
-const og = await getImage({ src: hero, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
-const ogUrl = new URL(og.src, Astro.site).href;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Kochi Tech Group</title>
-		<meta name="description" content={description} />
-		<meta name="theme-color" content="#1b1433" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Kochi Tech Group" />
-		<meta property="og:description" content={description} />
-		<meta property="og:url" content={Astro.site?.href} />
-		<meta property="og:image" content={ogUrl} />
-		<meta property="og:image:alt" content={heroAlt} />
-		<meta name="twitter:card" content="summary_large_image" />
-	</head>
-	<body>
-		<header class="hero">
-			<Image
-				class="hero-image"
-				src={hero}
-				alt={heroAlt}
-				widths={[640, 960, 1254]}
-				sizes="100vw"
-				loading="eager"
-				fetchpriority="high"
-			/>
-			<div class="hero-scrim" aria-hidden="true"></div>
-			<nav class="bar wrap">
-				<span class="mark">KTG</span>
-				<a class="bar-link" href={`mailto:${email}`}>Contact</a>
-			</nav>
-			<div class="hero-copy wrap">
-				<p class="eyebrow">Kochi, Kerala</p>
-				<h1>Kochi Tech Group</h1>
-				<p class="lede">
-					A not-for-profit community for people who want to understand computing properly, from the
-					machine up and from first principles down.
-				</p>
+<Base>
+	<header class="hero">
+		<Image
+			class="hero-image"
+			src={hero}
+			alt={heroAlt}
+			widths={[640, 960, 1254]}
+			sizes="100vw"
+			loading="eager"
+			fetchpriority="high"
+		/>
+		<div class="hero-scrim" aria-hidden="true"></div>
+		<nav class="bar wrap" aria-label="Site">
+			<span class="mark" aria-hidden="true">{site.shortName}</span>
+			<a class="bar-link" href={`mailto:${site.email}`}>Contact</a>
+		</nav>
+		<div class="hero-copy wrap">
+			<p class="eyebrow">{site.locality}, {site.region}</p>
+			<h1>{site.name}</h1>
+			<p class="lede">{site.tagline}</p>
+		</div>
+	</header>
+
+	<main>
+		<section class="wrap study" aria-labelledby="study-heading">
+			<div class="section-head">
+				<p class="eyebrow">What we study</p>
+				<h2 id="study-heading">Seven subjects, one conversation</h2>
 			</div>
-		</header>
+			<ol class="topics">
+				{
+					topics.map((t, i) => (
+						<li>
+							<span class="index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+							<h3>{t.name}</h3>
+							<p>{t.note}</p>
+						</li>
+					))
+				}
+			</ol>
+		</section>
 
-		<main>
-			<section class="wrap study">
-				<div class="section-head">
-					<p class="eyebrow">What we study</p>
-					<h2>Seven subjects, one conversation</h2>
+		<section class="soon" aria-labelledby="soon-heading">
+			<div class="wrap soon-inner">
+				<div>
+					<p class="eyebrow">Coming soon</p>
+					<h2 id="soon-heading">Talks, reading groups and writing</h2>
+					<p>The first programme is being put together now. To hear first, or to take part, write to us.</p>
 				</div>
-				<ol class="topics">
-					{
-						topics.map((t, i) => (
-							<li>
-								<span class="index">{String(i + 1).padStart(2, '0')}</span>
-								<h3>{t.name}</h3>
-								<p>{t.note}</p>
-							</li>
-						))
-					}
-				</ol>
-			</section>
+				<a class="button" href={`mailto:${site.email}`}>{site.email}</a>
+			</div>
+		</section>
+	</main>
 
-			<section class="soon">
-				<div class="wrap soon-inner">
-					<div>
-						<p class="eyebrow">Coming soon</p>
-						<h2>Talks, reading groups and writing</h2>
-						<p>The first programme is being put together now. To hear first, or to take part, write to us.</p>
-					</div>
-					<a class="button" href={`mailto:${email}`}>{email}</a>
-				</div>
-			</section>
-		</main>
-
-		<footer class="wrap footer">
-			<span>Kochi Tech Group</span>
-			<span class="footer-links">
-				<a href={`mailto:${email}`}>{email}</a>
-				<a href={github}>GitHub</a>
-			</span>
-		</footer>
-	</body>
-</html>
+	<footer class="wrap footer">
+		<span>{site.name}</span>
+		<span class="footer-links">
+			<a href={`mailto:${site.email}`}>{site.email}</a>
+			<a href={site.github}>GitHub</a>
+		</span>
+	</footer>
+</Base>
